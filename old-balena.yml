@@ -1,0 +1,43 @@
+name: MobiusFlow®
+type: sw.application
+description: >-
+  MobiusFlow® - Advanced middleware for smart buildings, industry, and the Internet of Things.
+post-provisioning: >-
+  ## About
+
+  MobiusFlow® Connectors
+
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/mobiusflow/mobius-connector-balena-deploy-rpi4'
+  logo:
+    type: blob.asset
+    data:
+      url: >-
+        https://raw.githubusercontent.com/mobiusflow/mobius-balena-deploy-rpi4/master/logo.png
+data:
+  applicationEnvironmentVariables:
+    - PSK: ''
+    - BROKER_LOCATION: ''
+    - PORT: ''
+    - TLS: ''
+    - USERNAME: ''
+    - PASSWORD: ''
+  fleetEnvironmentVariables:
+    - PSK: ''
+    - BROKER_LOCATION: ''
+    - PORT: ''
+    - TLS: ''
+    - USERNAME: ''
+    - PASSWORD: ''
+  defaultDeviceType: raspberrypi4-64
+  supportedDeviceTypes:
+    - raspberry-pi
+    - raspberrypi3
+    - raspberrypi3-64
+    - raspberrypi4-64
+    - raspberrypi5
+    - raspberrypi0-2w-64
+version: "0.0.37"

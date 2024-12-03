@@ -1,0 +1,42 @@
+version: '2'
+volumes:
+  connector-data:
+
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - connector
+
+  connector:
+    image: ghcr.io/mobiusflow/balena_rpi5_connector:0.1.2_0.1.2
+    privileged: true
+    restart: always
+    ports:
+      - 8090:8090
+    volumes:
+      - connector-data:/data
+    labels:
+      io.resin.features.dbus: '1'
+      io.resin.features.supervisor-api: '1'
+
+  manage:
+    image: ghcr.io/mobiusflow/balena_rpi5_manage-v2:2.3.4-elliot.6
+    privileged: true
+    network_mode: host
+    restart: always
+    volumes:
+      - connector-data:/data
+    labels:
+      io.resin.features.dbus: '1'
+      io.resin.features.supervisor-api: '1'
+
+  connector-ui:
+    image: ghcr.io/mobiusflow/mobcon-connector-ui-rpi:latest
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - connector-data:/data
