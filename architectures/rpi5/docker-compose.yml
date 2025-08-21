@@ -11,7 +11,7 @@ services:
       - connector
 
   connector:
-    image: ghcr.io/mobiusflow/balena_rpi5_connector:1.2.0_1.2.0
+    image: ghcr.io/mobiusflow/balena_rpi5_connector:1.2.1_1.2.1
     privileged: true
     restart: always
     ports:

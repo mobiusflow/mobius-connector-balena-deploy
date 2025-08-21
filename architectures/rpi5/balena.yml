@@ -35,4 +35,4 @@ data:
   defaultDeviceType: raspberrypi5
   supportedDeviceTypes:
     - raspberrypi5
-version: "1.2.0"
+version: "1.2.1"
